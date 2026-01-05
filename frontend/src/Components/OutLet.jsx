@@ -1,6 +1,6 @@
 import React from 'react'
 import NavBar from './NavBar/NavBar'
-import Footer from './Footer'
+import Footer from '../Components/Footer/Footer'
 import {Outlet} from "react-router-dom"
 
 function OutLet() {

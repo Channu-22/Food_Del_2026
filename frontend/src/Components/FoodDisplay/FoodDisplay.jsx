@@ -13,7 +13,9 @@ function FoodDisplay({category, setCategory}) {
       <div className="food-display-list grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] mt-[30px] gap-x-[30px] gap-y-[50px]">
         {
           food_list.map((item, index) => {
-            return <FoodItem key={index} id={item._id} name={item.name} price={item.price} description={item.description} image={item.image}/>
+            if(category === "All"  || category === item.category){
+              return <FoodItem key={index} id={item._id} name={item.name} price={item.price} description={item.description} image={item.image}/>
+            }      
           })
         }
 
