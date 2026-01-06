@@ -1,6 +1,6 @@
 import React, { Children } from "react";
 import "./App.css";
-import NavBar from "./Components/NavBar/NavBar";
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import OutLet from "./Components/OutLet";
 import Home from "./Pages/Home/Home.jsx";

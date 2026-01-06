@@ -4,7 +4,7 @@ import { assets } from '../../assets/assets';
 
 function Footer() {
   return (
-    <div className="bg-[#323232] text-[#d9d9d9] py-20 px-8 mt-24 w-full">
+    <div className="bg-[#323232] text-[#d9d9d9] py-20 px-8 mt-24 w-full" id="footer">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-12 md:gap-20">
           {/* Left Section */}
@@ -61,8 +61,8 @@ function Footer() {
         <hr className="border-[#404040] my-8 mt-12" />
 
         {/* Copyright */}
-        <p className="text-center text-sm">
-          Copyright 2024 © channusinnur22072002@gmail.com - All Right Reserved.
+        <p className="text-center text-sm md:text-center">
+          Copyright 2026 © channusinnur22072002@gmail.com - All Right Reserved.
         </p>
       </div>
     </div>

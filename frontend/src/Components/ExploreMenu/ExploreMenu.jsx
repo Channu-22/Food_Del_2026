@@ -8,9 +8,9 @@ import { menu_list } from '../../assets/assets'
 
 function ExploreMenu( {category, setCategory}) {
   return (
-    <div className="explore-menu flex flex-col gap-5 " id="explore-menu">
+    <div className="explore-menu  flex flex-col gap-5 " id="explore-menu">
       <h1 className="text-[#262626] text-3xl font-medium ">Explore our menu</h1>
-      <p className="explore-menu-text max-w-[60%] text-[#808080]">Choose from a diverse menu featuring a delectable array of dishes.Our mission is to satisfy your cravings and elevate your dining experience, one delicious meal at a time.</p> 
+      <p className="explore-menu-text max-w-[60%] max-[1050px]:max-w-full max-[1050px]:text-[14px]  text-[#808080]">Choose from a diverse menu featuring a delectable array of dishes.Our mission is to satisfy your cravings and elevate your dining experience, one delicious meal at a time.</p> 
       <div className="explore-menu-list  flex gap-5  justify-between items-center text-center my-5 overflow-x-scroll">
         {
           menu_list.map((item,index) => {
