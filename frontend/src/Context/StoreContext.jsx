@@ -6,7 +6,6 @@ import { food_list } from "../assets/assets";
 function StoreContextProvider({ children }) {
   const [cartItems, setCartItems] = useState({});
 
-
   //add to cart function
   function addToCart(itemId) {
     if (!cartItems[itemId]) {
@@ -30,20 +29,30 @@ function StoreContextProvider({ children }) {
     }));
   }
 
-  
-  useEffect(() => {
-    console.log("cartItems: ",cartItems)
-    
-  },[cartItems]);
+  function getTotalCartAmount() {
+    let totalAmount = 0;
+    for (const item in cartItems) {
+      if (cartItems[item] > 0) {
+        let itemInfo = food_list.find((product) => product._id === item);
+        totalAmount += itemInfo.price * cartItems[item];
+      }
+    }
+    return totalAmount;
+  }
+
+  // useEffect(() => {
+  //   console.log("cartItems: ",cartItems)
+
+  // },[cartItems]);
 
   const contextValue = {
     food_list,
     cartItems,
-    setCartItems, 
+    setCartItems,
     addToCart,
-    removeFromCart
+    removeFromCart,
+    getTotalCartAmount,
   };
-
 
   return (
     <StoreContext.Provider value={contextValue}>

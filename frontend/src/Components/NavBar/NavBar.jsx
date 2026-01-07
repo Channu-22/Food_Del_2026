@@ -1,22 +1,28 @@
-import React, { useState } from "react";
-import {Link} from "react-router-dom"
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import "./NavBar.css";
 import { assets } from "../../assets/assets";
+import { StoreContext } from "../../Context/StoreContext";
 
 // tomato-text-[#ff6347]
 // text-#49557e
 // bg-#fff4f2
 
-function NavBar({setShowlogin}) {
+
+
+function NavBar({ setShowlogin }) {
   const [menu, setMenu] = useState("home");
+  const{getTotalCartAmount} = useContext(StoreContext);
 
   return (
     <div className="navbar flex items-center justify-between py-5">
-      <img
-        src={assets.logo}
-        alt=""
-        className="logo w-[150px] max-[1050px]:w-[140px] max-[875px]:w-[120px]"
-      />
+      <Link to="/">
+        <img
+          src={assets.logo}
+          alt=""
+          className="logo w-[150px] max-[1050px]:w-[140px] max-[875px]:w-[120px]"
+        />
+      </Link>
       <ul
         className="navabar_menu  flex items-cente
          gap-5 max-[1050px]:gap-[18px] max-[875px]:gap-[15px] 
@@ -24,7 +30,7 @@ function NavBar({setShowlogin}) {
          max-[875px]:text-[16px] max-[780px]:hidden"
       >
         <Link
-        to="/"
+          to="/"
           onClick={() => setMenu("home")}
           className={` ${
             menu === "home"
@@ -35,7 +41,7 @@ function NavBar({setShowlogin}) {
           home
         </Link>
         <a
-        href="#explore-menu"
+          href="#explore-menu"
           onClick={() => setMenu("menu")}
           className={` ${
             menu === "menu"
@@ -75,8 +81,10 @@ function NavBar({setShowlogin}) {
           className="max-[1050px]:w-[22px] max-[875px]:w-5"
         />
         <div className="navbar-search-icon relative  ">
-          <img src={assets.basket_icon} alt="" className="" />
-          <div className="dot absolute min-h-[10px] min-w-[10px] bg-[#ff6347] rounded-[5px] top-[-8px] right-[-8px]"></div>
+          <Link to="/cart">
+            <img src={assets.basket_icon} alt="" className="" />
+          </Link>
+          <div className={`${getTotalCartAmount() === 0 ? "" : "dot absolute min-h-[10px] min-w-[10px] bg-[#ff6347] rounded-[5px] top-[-8px] right-[-8px]"}`}></div>
         </div>
         <button
           onClick={() => setShowlogin(true)}
