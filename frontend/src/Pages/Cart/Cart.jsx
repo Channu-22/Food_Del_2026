@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import "./Cart.css";
 import { StoreContext } from "../../Context/StoreContext";
+import { useNavigate } from "react-router-dom";
 
 import { IndianRupee } from "lucide-react";
 
@@ -9,6 +10,7 @@ function Cart() {
     useContext(StoreContext);
   const gridCols = "grid-cols-[80px_2fr_1fr_1fr_1fr_60px]";
   const cartTotal = getTotalCartAmount();
+  const navigate = useNavigate();
 
   return (
     <div className="cart mt-[100px]">
@@ -78,9 +80,9 @@ function Cart() {
           }
         })}
       </div>
-      <div className="cart-bottom  mt-[80px] flex max-[800px]:flex-col-reverse justify-between gap-[max(12vw,20px)]">
+      <div className="cart-bottom  mt-[100px] flex max-[800px]:flex-col-reverse justify-between gap-[max(12vw,20px)]">
         <div className="cart-total flex-1 flex flex-col gap-5">
-          <h2>Cart totals</h2>
+           <h2 className="font-semibold text-[30px]">Cart totals</h2>
           <div>
             <div className="cart-total-details flex justify-between text-[#555]">
               <p>Subtotal</p>
@@ -109,7 +111,7 @@ function Cart() {
               </b>
             </div>
           </div>
-          <button className="text-white bg-[#ff6347] w-[max(15vw,200px)] py-3 rounded-[4px] cursor-pointer">
+          <button onClick={() => navigate("/order") }className="text-white bg-[#ff6347] w-[max(15vw,200px)] py-3 rounded-[4px] cursor-pointer">
             PROCEED TO CHECKOUT
           </button>
         </div>

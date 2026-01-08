@@ -40,6 +40,9 @@ export default {
           800: "#01212A",
           900: "#001B22",
         },
+        tomato:{
+             5:"#ff6347"
+        },
         blue: {
           5: "#EAF5FF",
           25: "#B4DAEC",
