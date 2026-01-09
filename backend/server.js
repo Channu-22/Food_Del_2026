@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import dbConnection from "./config/database.js";
+import foodRoute from "./routes/foodRoute.js";
 
 //app config and dotenv
 dotenv.config();
@@ -12,8 +13,17 @@ const PORT = process.env.PORT || 8000;
 app.use(express.json());
 app.use(cors());
 
+app.get("/", (req, res) => {
+    res.send("API WORKING")
 
-//dbConnection
+})
+
+// api endpoint
+app.use("/api/food",foodRoute)
+app.use("/images",express.static("uploads"));
+
+
+//dbConnection + server
 const server = async () => {
     try {
         await dbConnection();
@@ -26,9 +36,6 @@ const server = async () => {
     }
 }
 server();
-app.get("/", (req, res) => {
-    res.send("API WORKING")
 
-})
 
 
