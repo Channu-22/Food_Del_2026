@@ -20,22 +20,18 @@ function Add() {
     }));
   }
 
-  useEffect(() => {
-    console.log(data)
-
-  },[data]);
-
   function onSubmitHandler(e) {
     e.preventDefault();
     const formaData = new FormData();
-    formaData.append("name",data.name);
- formaData.append("description",data.description);
-  formaData.append("price",Number(data.price));
-   formaData.append("category",data.category);
-   FormData.append("image",image)
-
-
+    formaData.append("name", data.name);
+    formaData.append("description", data.description);
+    formaData.append("price", Number(data.price));
+    formaData.append("category", data.category);
+    formaData.append("image", image);
   }
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   return (
     <div className="add w-[70%] ml-[max(5vw,25px)] mt-12.5 text-[#6d6d6d] text-[16px]">
@@ -54,7 +50,8 @@ function Add() {
             type="file"
             id="image"
             hidden
-            required
+            // required
+            // onChange={(e) => setImage(e.target.files[0])}
             onChange={(e) => setImage(e.target.files[0])}
           />
         </div>
@@ -86,7 +83,7 @@ function Add() {
         </div>
 
         {/* Category & Price */}
-        <div className="add-category-price flex gap-[30px]">
+        <div className="add-category-price flex gap-7.5">
           {/* Category */}
           <div className="add-category flex_col">
             <p>Product Category</p>
@@ -94,7 +91,7 @@ function Add() {
               name="category"
               onChange={onChangeHandler}
               value={data.category}
-              className="p-2 border border-gray-300 rounded-md max-w-[120px]"
+              className="p-2 border border-gray-300 rounded-md max-w-[120px]]"
             >
               <option value="Salad">Salad</option>
               <option value="Rolls">Rolls</option>
@@ -116,7 +113,7 @@ function Add() {
               name="price"
               value={data.price}
               placeholder="Rs20"
-              className="p-2 border border-gray-300 rounded-md max-w-[120px]"
+              className="p-2 border border-gray-300 rounded-md max-w-30"
             />
           </div>
         </div>
