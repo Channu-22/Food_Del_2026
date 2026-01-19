@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./Add.css";
 import { assets } from "../../assets/assets";
-import { IndianRupee } from "lucide-react";
 
-function Add() {
+
+import axios from "axios";
+import { toast } from "react-toastify";
+
+function Add({url}) {
+  // const url = "http://localhost:4000";
   const [image, setImage] = useState(false);
   const [data, setData] = useState({
     name: "",
@@ -20,7 +24,7 @@ function Add() {
     }));
   }
 
-  function onSubmitHandler(e) {
+  async function onSubmitHandler(e) {
     e.preventDefault();
     const formaData = new FormData();
     formaData.append("name", data.name);
@@ -28,6 +32,20 @@ function Add() {
     formaData.append("price", Number(data.price));
     formaData.append("category", data.category);
     formaData.append("image", image);
+    const response = await axios.post(`${url}/api/food/add`, formaData);
+    if (response.data.success) {
+      setData({
+        name: "",
+        description: "",
+        price: "",
+        category: "Salad",
+      });
+      setImage(false)
+      toast.success(response.data.message);
+    } else {
+      toast.error(response.data.message)
+      
+    }
   }
   useEffect(() => {
     console.log(data);
@@ -50,7 +68,7 @@ function Add() {
             type="file"
             id="image"
             hidden
-            // required
+            required
             // onChange={(e) => setImage(e.target.files[0])}
             onChange={(e) => setImage(e.target.files[0])}
           />

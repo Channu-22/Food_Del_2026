@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import dbConnection from "./config/database.js";
 import foodRoute from "./routes/foodRoute.js";
+import userRouter from "./routes/userRoute.js";
 
 //app config and dotenv
 dotenv.config();
@@ -21,6 +22,7 @@ app.get("/", (req, res) => {
 // api endpoint
 app.use("/api/food",foodRoute)
 app.use("/images",express.static("uploads"));
+app.use("/api/user",userRouter)
 
 
 //dbConnection + server
