@@ -5,6 +5,8 @@ import { food_list } from "../assets/assets";
 
 function StoreContextProvider({ children }) {
   const [cartItems, setCartItems] = useState({});
+  const url = "http://localhost:4000"
+  const [token, setToken] = useState("");
 
   //add to cart function
   function addToCart(itemId) {
@@ -52,6 +54,9 @@ function StoreContextProvider({ children }) {
     addToCart,
     removeFromCart,
     getTotalCartAmount,
+    url,
+    token,
+    setToken
   };
 
   return (
