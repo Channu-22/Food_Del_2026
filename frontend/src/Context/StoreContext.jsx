@@ -1,12 +1,14 @@
+import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 
 export const StoreContext = createContext(null);
-import { food_list } from "../assets/assets";
+// import { food_list } from "../assets/assets";
 
 function StoreContextProvider({ children }) {
   const [cartItems, setCartItems] = useState({});
-  const url = "http://localhost:4000"
+  const url = "http://localhost:4000";
   const [token, setToken] = useState("");
+  const [food_list, setFood_list] = useState([]);
 
   //add to cart function
   function addToCart(itemId) {
@@ -42,10 +44,23 @@ function StoreContextProvider({ children }) {
     return totalAmount;
   }
 
-  // useEffect(() => {
-  //   console.log("cartItems: ",cartItems)
+  async function fetchFoodList() {
+    const response = await axios.get(url +"/api/food/list");
+    console.log(response);
+    setFood_list(response.data.data);
+  }
 
-  // },[cartItems]);
+  useEffect(() => {
+    async function loadData() {
+      await fetchFoodList();
+      if (localStorage.getItem("token")) {
+        setToken(localStorage.getItem("token"));
+      }
+    }
+    console.log("food: ",food_list)
+
+    loadData();
+  }, []);
 
   const contextValue = {
     food_list,
@@ -56,7 +71,7 @@ function StoreContextProvider({ children }) {
     getTotalCartAmount,
     url,
     token,
-    setToken
+    setToken,
   };
 
   return (

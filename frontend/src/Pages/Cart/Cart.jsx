@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { IndianRupee } from "lucide-react";
 
 function Cart() {
-  const { food_list, cartItems, removeFromCart, getTotalCartAmount } =
+  const { food_list, cartItems, removeFromCart, getTotalCartAmount,url, } =
     useContext(StoreContext);
   const gridCols = "grid-cols-[80px_2fr_1fr_1fr_1fr_60px]";
   const cartTotal = getTotalCartAmount();
@@ -44,8 +44,9 @@ function Cart() {
                 className={`grid ${gridCols} items-center py-4 border-b text-black`}
               >
                 {/* Image */}
+               
                 <img
-                  src={item.image}
+                  src={url+"/images/"+item.image}
                   alt={item.name}
                   className="w-[50px] h-[50px] object-cover rounded"
                 />
