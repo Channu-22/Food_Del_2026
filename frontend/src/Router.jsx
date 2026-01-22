@@ -7,6 +7,8 @@ import Home from "./Pages/Home/Home.jsx";
 import Cart from "./Pages/Cart/Cart.jsx";
 import PlaceOrder from "./Pages/PlaceOrder/PlaceOrder.jsx";
 import StoreContextProvider from "./Context/StoreContext.jsx";
+import Verify from "./Pages/verify/Verify.jsx";
+import MyOrders from "./Pages/MyOrders/MyOrders.jsx";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +17,6 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        path: "/",
         element: <Home />,
       },
       {
@@ -25,6 +26,14 @@ const router = createBrowserRouter([
       {
         path: "/order",
         element: <PlaceOrder />,
+      },
+      {
+        path:"/verify",
+        element:<Verify/>
+      },
+      {
+        path:"/myorders",
+        element:<MyOrders/>
       },
     ],
   },

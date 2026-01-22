@@ -6,6 +6,7 @@ import foodRoute from "./routes/foodRoute.js";
 import userRouter from "./routes/userRoute.js";
 import path from "path";
 import cartRoute from "./routes/cartRoute.js";
+import orderRouter from "./routes/orderRoute.js";
 //app config and dotenv
 dotenv.config();
 const app = express();
@@ -13,11 +14,11 @@ const PORT = process.env.PORT || 8000;
 
 //middleware
 app.use(express.json());
-// app.use(cors());
-app.use(cors({
-  origin: "http://localhost:5173", // or whatever port your frontend runs on
-  credentials: true
-}));
+app.use(cors());
+// app.use(cors({
+//   origin: "http://localhost:5173", // or whatever port your frontend runs on
+//   credentials: true
+// }));
 
 app.get("/", (req, res) => {
     res.send("API WORKING")
@@ -33,6 +34,7 @@ app.use(
 app.use("/api/food",foodRoute)
 app.use("/api/user",userRouter)
 app.use("/api/cart",cartRoute)
+app.use("/api/order",orderRouter)
 
 
 //dbConnection + server

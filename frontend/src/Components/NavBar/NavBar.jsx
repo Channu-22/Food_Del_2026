@@ -113,7 +113,7 @@ function NavBar({ setShowlogin }) {
           <div className="navbar-profile relative group ">
             <img src={assets.profile_icon} alt="" />
             <ul className="nav-profile-dropdown absolute right-0   z-10 hidden group-hover:flex flex-col gap-[10px] bg-[#fff2ef] py-3 px-[25px] rounded-[4px] border border-[#ff6347] outline-2 outline-white">
-              <li className="flex items-center gap-2 justify-center cursor-pointer hover:text-[#ff6347]">
+              <li onClick={() => navigate("/myorders")} className="flex items-center gap-2 justify-center cursor-pointer hover:text-[#ff6347]">
                 <img src={assets.bag_icon} alt="" className="w-[20px]"/>
                 <p >Orders</p>
               </li>

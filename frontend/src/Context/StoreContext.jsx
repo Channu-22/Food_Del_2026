@@ -11,7 +11,7 @@ function StoreContextProvider({ children }) {
   const [food_list, setFood_list] = useState([]);
 
   //add to cart function
-  function addToCart(itemId) {
+  async function addToCart(itemId) {
     if (!cartItems[itemId]) {
       setCartItems((prev) => ({
         ...prev,
@@ -23,14 +23,30 @@ function StoreContextProvider({ children }) {
         [itemId]: prev[itemId] + 1,
       }));
     }
+    if(token){
+      const response = await axios.post(url+"/api/cart/add",{itemId},{headers:{token}})
+      // console.log(response)
+    }
   }
 
   //remove from cart function
-  function removeFromCart(itemId) {
+  async function removeFromCart(itemId) {
     setCartItems((prev) => ({
       ...prev,
       [itemId]: prev[itemId] - 1,
     }));
+
+    if(token){
+      await axios.post(url+"/api/cart/remove",{itemId},{headers:{token}}) 
+    }
+  }
+
+  async function loadCartData(token) {
+    const response = await axios.post(url+"/api/cart/get",{},{headers:{token}})
+    // console.log("get:",response);
+    setCartItems(response.data.cart);
+
+
   }
 
   function getTotalCartAmount() {
@@ -46,7 +62,7 @@ function StoreContextProvider({ children }) {
 
   async function fetchFoodList() {
     const response = await axios.get(url +"/api/food/list");
-    console.log(response);
+    // console.log(response);
     setFood_list(response.data.data);
   }
 
@@ -55,9 +71,10 @@ function StoreContextProvider({ children }) {
       await fetchFoodList();
       if (localStorage.getItem("token")) {
         setToken(localStorage.getItem("token"));
+        await loadCartData(localStorage.getItem("token"));
       }
     }
-    console.log("food: ",food_list)
+    // console.log("food: ",food_list)
 
     loadData();
   }, []);
