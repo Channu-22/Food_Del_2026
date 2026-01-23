@@ -51,7 +51,7 @@ The application offers a wide variety of food items organized into the following
 - **Context API** - Global state management for cart and user data
 - **React Router DOM** - Client-side routing and navigation
 - **Axios** - HTTP client for API requests
-- **Tailwind CSS** - Modern styling and responsive design
+- **CSS3** - Modern styling and responsive design
 
 ### Backend
 - **Node.js** - JavaScript runtime environment
@@ -73,6 +73,92 @@ The application offers a wide variety of food items organized into the following
 - Real-time payment processing
 - Order confirmation after successful payment
 - Support for multiple payment methods
+
+## 📁 Project Structure
+
+```
+├── .vscode/        # VS Code configuration
+├── admin/          # Admin panel application
+├── backend/        # Server-side application
+├── frontend/       # Client-side application
+├── .gitignore      # Git ignore configuration
+├── admin.png       # Admin panel screenshot
+├── frontend.png    # Frontend screenshot
+└── README.md       # Project documentation
+```
+
+## 🚀 Getting Started
+
+Follow these steps to set up and run the application on your local machine.
+
+### Prerequisites
+- Node.js (v14 or higher)
+- MongoDB database
+- Stripe account for payment processing
+
+## 💻 Installation
+
+### 1. Clone the repository
+```bash
+git clone <repository-url>
+cd FOOD_DEL
+```
+
+### 2. Install dependencies for all components
+
+```bash
+# Install backend dependencies
+cd backend
+npm install
+
+# Install frontend dependencies
+cd ../frontend
+npm install
+
+# Install admin panel dependencies
+cd ../admin
+npm install
+```
+
+### 3. Configure environment variables
+
+Create `.env` file in the **backend** directory:
+```env
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
+STRIPE_SECRET_KEY=your_stripe_secret_key
+PORT=4000
+```
+
+Create `.env` file in the **frontend** directory:
+```env
+REACT_APP_API_URL=http://localhost:4000
+REACT_APP_STRIPE_PUBLIC_KEY=your_stripe_public_key
+```
+
+Create `.env` file in the **admin** directory:
+```env
+REACT_APP_API_URL=http://localhost:4000
+```
+
+### 4. Run the application
+
+```bash
+# Run backend server (from backend directory)
+cd backend
+npm start
+# Backend will run on http://localhost:4000
+
+# Run frontend application (from frontend directory)
+cd frontend
+npm start
+# Frontend will run on http://localhost:5173
+
+# Run admin panel (from admin directory)
+cd admin
+npm start
+# Admin panel will run on http://localhost:5174
+```
 
 ## 🎯 Key Functionalities
 
@@ -134,104 +220,22 @@ The application is fully responsive and works seamlessly across:
 
 ## 🔒 Security Features
 
-- Password encryption
-- JWT token authentication
-- Protected API routes
-- Secure payment processing
+- Password encryption using bcrypt
+- JWT token authentication for secure sessions
+- Protected API routes with authentication middleware
+- Secure payment processing through Stripe
 - Input validation and sanitization
-
-
-## 📁 Project Structure
-
-```
-├── .vscode/        # VS Code configuration
-├── admin/          # Admin panel application
-├── backend/        # Server-side application
-├── frontend/       # Client-side application
-├── .gitignore      # Git ignore configuration
-├── admin.png       # Admin panel screenshot
-├── frontend.png    # Frontend screenshot
-└── README.md       # Project documentation
-```
-
-## 🚀 Getting Started
-
-Follow these steps to set up and run the application on your local machine.
-
-### Prerequisites
-- Node.js (v14 or higher)
-- MongoDB database
-- Stripe account for payment processing
-
-## 💻 Installation
-
-### 1. Clone the repository
-```bash
-git clone <repository-url>
-cd FOOD_DEL
-```
-
-### 2. Install dependencies for all components
-
-```bash
-# Install backend dependencies
-cd backend
-npm install
-
-# Install frontend dependencies
-cd ../frontend
-npm install
-
-# Install admin panel dependencies
-cd ../admin
-npm install
-```
-
-### 3. Configure environment variables
-
-Create `.env` file in the **backend** directory:
-```env
-MONGODB_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
-STRIPE_SECRET_KEY=your_stripe_secret_key
-PORT=4000
-```
-
-Create `.env` file in the **frontend** directory:
-```env
-REACT_APP_API_URL=http://localhost:5173
-REACT_APP_STRIPE_PUBLIC_KEY=your_stripe_public_key
-```
-
-Create `.env` file in the **admin** directory:
-```env
-REACT_APP_API_URL=http://localhost:5174
-```
-
-### 4. Run the application
-
-```bash
-# Run backend server (from backend directory)
-cd backend
-npm start
-# Backend will run on http://localhost:4000
-
-# Run frontend application (from frontend directory)
-cd frontend
-npm start
-# Frontend will run on http://localhost:5173
-
-# Run admin panel (from admin directory)
-cd admin
-npm start
-# Admin panel will run on http://localhost:5174
-```
+- HTTP-only cookies for token storage
+- CORS configuration for API security
+- Environment variables for sensitive data protection
 
 ## 📝 License
 
 This project is open source and available for educational purposes.
 
 ## 👨‍💻 Developer
+
+**Chanabasappa Sinnur**
 
 Built with passion for creating seamless food ordering experiences.
 
@@ -241,7 +245,12 @@ Contributions, issues, and feature requests are welcome!
 
 ## 📞 Contact
 
-For any queries or support, please reach out through the GitHub repository.
+For any queries or support, feel free to reach out:
+
+- **Name**: Chanabasappa Sinnur
+- **Email**: channusinnur22072002@gmail.com
+- **Mobile**: +91 9322605251
+- **GitHub**: https://github.com/Channu-22
 
 ---
 
