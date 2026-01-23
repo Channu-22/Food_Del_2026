@@ -51,7 +51,7 @@ The application offers a wide variety of food items organized into the following
 - **Context API** - Global state management for cart and user data
 - **React Router DOM** - Client-side routing and navigation
 - **Axios** - HTTP client for API requests
-- **CSS3** - Modern styling and responsive design
+- **Tailwind CSS** - Modern styling and responsive design
 
 ### Backend
 - **Node.js** - JavaScript runtime environment
