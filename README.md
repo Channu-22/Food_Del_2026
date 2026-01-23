@@ -199,13 +199,13 @@ PORT=4000
 
 Create `.env` file in the **frontend** directory:
 ```env
-REACT_APP_API_URL=http://localhost:4000
+REACT_APP_API_URL=http://localhost:5173
 REACT_APP_STRIPE_PUBLIC_KEY=your_stripe_public_key
 ```
 
 Create `.env` file in the **admin** directory:
 ```env
-REACT_APP_API_URL=http://localhost:4000
+REACT_APP_API_URL=http://localhost:5174
 ```
 
 ### 4. Run the application
