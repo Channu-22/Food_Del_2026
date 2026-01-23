@@ -74,6 +74,75 @@ The application offers a wide variety of food items organized into the following
 - Order confirmation after successful payment
 - Support for multiple payment methods
 
+
+## 🎯 Key Functionalities
+
+### State Management with Context API
+- Centralized cart management
+- User authentication state
+- Food items list management
+- Token persistence with localStorage
+
+### Cart Operations
+- Add items to cart with + icon
+- Increase/decrease item quantities
+- Real-time cart total calculation
+- Synchronized cart data with backend
+
+### Order Flow
+1. Browse food items by category
+2. Add desired items to cart
+3. Review cart and adjust quantities
+4. Proceed to checkout
+5. Complete payment via Stripe
+6. View order confirmation and track orders
+
+### Admin Operations
+- Upload food items with images and details
+- View comprehensive list of all food items
+- Monitor incoming orders in real-time
+- Manage order status and fulfillment
+
+## 🔑 API Endpoints
+
+### User Routes
+- `POST /api/user/register` - User registration
+- `POST /api/user/login` - User login
+
+### Food Routes
+- `POST /api/food/add` - Add new food item with image upload (Admin)
+- `GET /api/food/list` - Get all food items
+- `POST /api/food/removeFood` - Remove food item (Admin)
+
+### Cart Routes
+- `POST /api/cart/add` - Add item to cart (Protected)
+- `POST /api/cart/remove` - Remove item from cart (Protected)
+- `POST /api/cart/get` - Get user cart (Protected)
+
+### Order Routes
+- `POST /api/order/place` - Place new order (Protected)
+- `POST /api/order/verify` - Verify payment and order
+- `POST /api/order/userOrders` - Get user's order history (Protected)
+- `GET /api/order/list` - Get all orders (Admin)
+- `POST /api/order/status` - Update order status (Admin)
+
+## 📱 Responsive Design
+
+The application is fully responsive and works seamlessly across:
+- Desktop computers
+- Tablets
+- Mobile devices
+
+## 🔒 Security Features
+- Password encryption using bcrypt
+- JWT token authentication for secure sessions
+- Protected API routes with authentication middleware
+- Secure payment processing through Stripe
+- Input validation and sanitization
+- HTTP-only cookies for token storage
+- CORS configuration for API security
+- Environment variables for sensitive data protection
+
 ## 📁 Project Structure
 
 ```
@@ -159,75 +228,6 @@ cd admin
 npm start
 # Admin panel will run on http://localhost:5174
 ```
-
-## 🎯 Key Functionalities
-
-### State Management with Context API
-- Centralized cart management
-- User authentication state
-- Food items list management
-- Token persistence with localStorage
-
-### Cart Operations
-- Add items to cart with + icon
-- Increase/decrease item quantities
-- Real-time cart total calculation
-- Synchronized cart data with backend
-
-### Order Flow
-1. Browse food items by category
-2. Add desired items to cart
-3. Review cart and adjust quantities
-4. Proceed to checkout
-5. Complete payment via Stripe
-6. View order confirmation and track orders
-
-### Admin Operations
-- Upload food items with images and details
-- View comprehensive list of all food items
-- Monitor incoming orders in real-time
-- Manage order status and fulfillment
-
-## 🔑 API Endpoints
-
-### User Routes
-- `POST /api/user/register` - User registration
-- `POST /api/user/login` - User login
-
-### Food Routes
-- `POST /api/food/add` - Add new food item with image upload (Admin)
-- `GET /api/food/list` - Get all food items
-- `POST /api/food/removeFood` - Remove food item (Admin)
-
-### Cart Routes
-- `POST /api/cart/add` - Add item to cart (Protected)
-- `POST /api/cart/remove` - Remove item from cart (Protected)
-- `POST /api/cart/get` - Get user cart (Protected)
-
-### Order Routes
-- `POST /api/order/place` - Place new order (Protected)
-- `POST /api/order/verify` - Verify payment and order
-- `POST /api/order/userOrders` - Get user's order history (Protected)
-- `GET /api/order/list` - Get all orders (Admin)
-- `POST /api/order/status` - Update order status (Admin)
-
-## 📱 Responsive Design
-
-The application is fully responsive and works seamlessly across:
-- Desktop computers
-- Tablets
-- Mobile devices
-
-## 🔒 Security Features
-
-- Password encryption using bcrypt
-- JWT token authentication for secure sessions
-- Protected API routes with authentication middleware
-- Secure payment processing through Stripe
-- Input validation and sanitization
-- HTTP-only cookies for token storage
-- CORS configuration for API security
-- Environment variables for sensitive data protection
 
 ## 📝 License
 
